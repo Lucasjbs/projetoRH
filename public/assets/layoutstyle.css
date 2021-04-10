@@ -1,0 +1,19 @@
+.nav-pad{
+    padding-left: 1rem;
+}
+body, html{
+    background-color: silver;
+}
+.custom-btn-block{
+    display: inline;
+    border: none;
+}
+.btn-anchor{
+    text-decoration: none;
+    color: white;
+}
+
+.footer-color{
+    color: gray;
+    padding: 1rem;
+}
