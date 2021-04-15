@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\PropostasController;
+use App\Http\Controllers\ProposalsController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,18 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', WelcomeController::class)->name('index');
+Route::get('/', WelcomeController::class)->name('welcome.get');
 
-Route::get('propostas', [PropostasController::class, 'enviar'])->name('propostas');
+Route::get('view/proposals', [ProposalsController::class, 'viewProposalForm'])->name('proposals.get.view');
 
-Route::post('propostas/inserir', [PropostasController::class, 'inserir'])->name('propostas.inserir');
+Route::post('new/proposals', [ProposalsController::class, 'insertProposalData'])->name('proposals.post.new');
 
-Route::get('propostas/listas', [PropostasController::class, 'listar'])->name('propostas.listas');
+Route::get('view/proposals/list', [ProposalsController::class, 'listAllProposals'])->name('list.get.view.proposals');
 
-Route::get('propostas/listas/{id}', [PropostasController::class, 'listarID'])->name('propostas.listasid');
+Route::get('view/proposal/{id}', [ProposalsController::class, 'listProposalById'])->name('listId.get.view.proposal.{id}');
 
-Route::get('propostas/{id}/editar', [PropostasController::class, 'editar'])->name('propostas.editar');
+Route::get('view/proposal/edit/{id}', [ProposalsController::class, 'editProposalForm'])->name('edit.get.view.proposal.{id}');
 
-Route::put('propostas/{id}/editarbd', [PropostasController::class, 'editarbd'])->name('propostas.editarbd');
+Route::put('edit/proposal/{id}', [ProposalsController::class, 'updateProposalData'])->name('edit.put.proposal.{id}');
 
-Route::delete('propostas/{id}/deletar', [PropostasController::class, 'deletar'])->name('propostas.deletar');
+Route::delete('delete/proposal/{id}', [ProposalsController::class, 'deleteProposalData'])->name('list.delete.proposal.{id}');

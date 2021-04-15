@@ -1,4 +1,4 @@
-@extends('layouts.template')
+@extends('layouts.layout-template')
 @section('title', 'Página Inicial - Emprego e Carreira')
 @section('content')
 <div class="container">

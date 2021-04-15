@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePropostasTable extends Migration
+class CreateProposalsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreatePropostasTable extends Migration
      */
     public function up()
     {
-        Schema::create('propostas', function (Blueprint $table) {
+        Schema::create('proposals', function (Blueprint $table) {
             $table->id();
-            $table->string('autor', 50);
+            $table->string('author', 50);
             $table->string('email', 50);
-            $table->string('titulo', 50);
-            $table->decimal('valor', 10, 2);
-            $table->text('descricao');
+            $table->string('title', 50);
+            $table->decimal('value', 10, 2);
+            $table->text('description');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreatePropostasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('propostas');
+        Schema::dropIfExists('proposals');
     }
 }

@@ -8,7 +8,7 @@
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/layoutstyle.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/layoutStyle.css')}}">
 </head>
 <header>
 <div class="container">
@@ -17,13 +17,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-            <a class="nav-link" href="{{route('index')}}">Página Inicial</a>
+            <a class="nav-link" href="{{route('welcome.get')}}">Página Inicial</a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" href="{{route('propostas')}}">Enviar Proposta</a>
+            <a class="nav-link" href="{{route('proposals.get.view')}}">Enviar Proposta</a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" href="{{route('propostas.listas')}}">Lista de Trabalhos</a>
+            <a class="nav-link" href="{{route('list.get.view.proposals')}}">Lista de Trabalhos</a>
         </li>
         </ul>
     </div>
