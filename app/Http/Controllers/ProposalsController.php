@@ -7,21 +7,19 @@ use Illuminate\Http\Request;
 
 class ProposalsController extends Controller
 {
-    public function viewProposalForm()
+    public function createProposalForm()
     {
-        return view('proposals');
+        return view('proposals/proposal');
     }
 
-    public function insertProposalData(Request $request){
-        if( 
-            $request->author == null || 
-            $request->email == null || 
-            $request->title == null || 
-            $request->value == null || 
-            $request->description == null
-            ){
-            return redirect()->route('proposals.get.view');
-        }
+    public function createProposalData(Request $request){
+        $request->validate([
+            'title' => 'required',
+            'author' => 'required',
+            'email' => 'required',
+            'value' => 'required',
+            'description' => 'required',
+        ]);
 
         $proposals = new Proposal();
 
@@ -31,35 +29,33 @@ class ProposalsController extends Controller
         $proposals->value = $request->value;
         $proposals->description = $request->description;
 
-        $proposals->save();
-        return redirect()->route('list.get.view.proposals');
+        $proposals->save(); 
+        return redirect()->route('proposals.get.view_list');
     }
 
-    public function listAllProposals(){
+    public function readAllProposals(){
         $proposals = Proposal::paginate();
-        return view('list', ['proposals' => $proposals]);
+        return view('proposals/list', ['proposals' => $proposals]);
     }
 
-    public function listProposalById($id){
+    public function readProposalById($id){
         $proposals = Proposal::find($id);
-        return view('listId', ['proposal' => $proposals]);
+        return view('proposals/listId', ['proposal' => $proposals]);
     }
 
-    public function editProposalForm($id){
+    public function updateProposalForm($id){
         $proposals = Proposal::find($id);
-        return view('edit', ['proposal' => $proposals]);
+        return view('proposals/edit', ['proposal' => $proposals]);
     }
 
     public function updateProposalData(Request $request, $id){
-        if( 
-            $request->author == null || 
-            $request->email == null || 
-            $request->title == null || 
-            $request->value == null || 
-            $request->description == null
-            ){
-            return redirect()->route('list.get.view.proposals');
-        }
+        $request->validate([
+            'title' => 'required',
+            'author' => 'required',
+            'email' => 'required',
+            'value' => 'required',
+            'description' => 'required',
+        ]);
 
         $proposals = Proposal::find($id);
 
@@ -70,12 +66,12 @@ class ProposalsController extends Controller
         $proposals->description = $request->description;
 
         $proposals->save();
-        return redirect()->route('list.get.view.proposals');
+        return redirect()->route('proposals.get.view_list');
     }
 
     public function deleteProposalData($id){
         $proposals = Proposal::find($id);
         $proposals->delete();
-        return redirect()->route('list.get.view.proposals');
+        return redirect()->route('proposals.get.view_list');
     }
 }

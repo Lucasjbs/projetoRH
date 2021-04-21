@@ -14,13 +14,13 @@
                     <strong>Criado em:</strong> {{$proposal->created_at}} <br>
                     <strong>Descrição:</strong> {{$proposal->description}} <br>
                 </p>
-                <form class="custom-btn-block" method="GET" action="{{route('listId.get.view.proposal.{id}', $proposal->id)}}">
+                <form class="custom-btn-block" method="GET" action="{{route('proposals.get.view_by_id', $proposal->id)}}">
                     <button type="submit" class="btn btn-primary">Acessar</button>
                 </form>
-                <form class="custom-btn-block" method="GET" action="{{route('edit.get.view.proposal.{id}', $proposal->id)}}">
+                <form class="custom-btn-block" method="GET" action="{{route('proposals.get.edit_form', $proposal->id)}}">
                     <button type="submit" class="btn btn-warning">Editar</button>
                 </form>
-                <form class="custom-btn-block" method="POST" action="{{route('list.delete.proposal.{id}', $proposal->id)}}">
+                <form class="custom-btn-block" method="POST" action="{{route('proposals.delete.id', $proposal->id)}}">
                     @csrf
                     @method('delete')
                     <button type="submit" class="btn btn-danger">Deletar</button>

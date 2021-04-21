@@ -17,13 +17,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-            <a class="nav-link" href="{{route('welcome.get')}}">Página Inicial</a>
+            <a class="nav-link" href="{{route('welcome.get./')}}">Página Inicial</a>
         </li>
         <li class="nav-item active">
             <a class="nav-link" href="{{route('proposals.get.view')}}">Enviar Proposta</a>
         </li>
         <li class="nav-item active">
-            <a class="nav-link" href="{{route('list.get.view.proposals')}}">Lista de Trabalhos</a>
+            <a class="nav-link" href="{{route('proposals.get.view_list')}}">Lista de Trabalhos</a>
         </li>
         </ul>
     </div>

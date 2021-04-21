@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h2>Preencha o formulário para editar sua proposta:</h2>
-    <form method="POST" action="{{route('edit.put.proposal.{id}', $proposal->id)}}">
+    <form method="POST" action="{{route('proposals.put.edit', $proposal->id)}}">
         @csrf
         @method('put')
         <div class="form-group">

@@ -15,18 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', WelcomeController::class)->name('welcome.get');
+Route::get('/', WelcomeController::class)->name('welcome.get./');
 
-Route::get('view/proposals', [ProposalsController::class, 'viewProposalForm'])->name('proposals.get.view');
+Route::get('/view/proposals', [ProposalsController::class, 'createProposalForm'])->name('proposals.get.view');
 
-Route::post('new/proposals', [ProposalsController::class, 'insertProposalData'])->name('proposals.post.new');
+Route::post('/new/proposals', [ProposalsController::class, 'createProposalData'])->name('proposals.post.new');
 
-Route::get('view/proposals/list', [ProposalsController::class, 'listAllProposals'])->name('list.get.view.proposals');
+Route::get('/view/proposals/list', [ProposalsController::class, 'readAllProposals'])->name('proposals.get.view_list');
 
-Route::get('view/proposal/{id}', [ProposalsController::class, 'listProposalById'])->name('listId.get.view.proposal.{id}');
+Route::get('/view/proposal/{id}', [ProposalsController::class, 'readProposalById'])->name('proposals.get.view_by_id');
 
-Route::get('view/proposal/edit/{id}', [ProposalsController::class, 'editProposalForm'])->name('edit.get.view.proposal.{id}');
+Route::get('/edit/proposal/{id}', [ProposalsController::class, 'updateProposalForm'])->name('proposals.get.edit_form');
 
-Route::put('edit/proposal/{id}', [ProposalsController::class, 'updateProposalData'])->name('edit.put.proposal.{id}');
+Route::put('/edit/proposal/{id}', [ProposalsController::class, 'updateProposalData'])->name('proposals.put.edit');
 
-Route::delete('delete/proposal/{id}', [ProposalsController::class, 'deleteProposalData'])->name('list.delete.proposal.{id}');
+Route::delete('/delete/proposal/{id}', [ProposalsController::class, 'deleteProposalData'])->name('proposals.delete.id');
